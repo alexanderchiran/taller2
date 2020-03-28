@@ -11,6 +11,10 @@ export class ServersComponent implements OnInit {
   cambio = true;
   serverName ='';
   nombre='';
+  servers=['TestServer','TesetServer 2'];
+  showSecret=false;
+  log=[];
+  log2=[];
 
   items= {
     title: 'Foot Ball',
@@ -18,9 +22,9 @@ export class ServersComponent implements OnInit {
   };
 
   constructor() {
-    setTimeout(() => {
+    /*setTimeout(() => {
       this.allowNewServer = true;
-    }, 2000);
+    }, 2000);*/
 
   }
 
@@ -28,14 +32,19 @@ export class ServersComponent implements OnInit {
   }
 
   onCreateServer() {
-    
-      this.serverCreationStatus = 'El servidor fue creado '+this.serverName;   
-    
+      this.servers.push(this.serverName);
+      this.serverCreationStatus = 'El servidor fue creado '+this.serverName;       
   }
 
   onUpdateServerName(event: Event){
     this.serverName = (<HTMLInputElement>event.target).value;
     //console.log(event);
+  }
+
+  onToggleDetails(){
+    this.showSecret= !this.showSecret;
+    this.log.push(this.log.length+1);
+    this.log2.push(new Date());
   }
 
 }

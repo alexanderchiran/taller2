@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h3>Esta es la tarea 2</h3>
+            <p>{{userName}}</p>
+            <input type="text" class="form-control" [(ngModel)]="userName">
+            <button class="btn btn-primary" [disabled]="(userName=='')" (click)="onLimpiar()">Agregar</button>
+        </div>
+    </div>
+</div>

@@ -1,20 +1,39 @@
 <h3>App servers</h3>
+<hr>
+<app-directiva></app-directiva>
+<hr>
+<app-tarea2></app-tarea2>
+<hr>
 <label>Server Name</label>
 <input type="text" class="form-control" (input)="onUpdateServerName($event)">
 
-
-<input type="text" class="form-control" [(ngModel)]="serverName">
 <p>{{serverName}}</p>
-
-
 <br>
 <button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
 <p>{{allowNewServer}}</p>
 <p [innerText]="allowNewServer"></p>
 <p>{{serverCreationStatus}}</p>
-
 <h1>Product</h1>
- <h2>Title : {{items.title}}</h2>
- <h2>Price : {{items.price}}</h2>
+<h2>Title : {{items.title}}</h2>
+<h2>Price : {{items.price}}</h2>
 <hr>
-<app-server></app-server>
+<button class="btn btn-primary" (click)="showSecret=!showSecret">Show Secret</button>
+<button class="btn btn-primary" (click)="onToggleDetails()">Show Secret 2</button>
+<p *ngIf="showSecret">Hola mundo</p>
+<div *ngFor="let logitem of log"
+    [ngStyle]="{backgroundColor: logitem >=5 ? 'blue': 'transparent'}"
+    [ngClass]="{'white-text': logitem>=5}"
+    >
+    {{logitem}}
+</div>
+
+<div *ngFor="let logitem of log2; let indice = index"
+    [ngStyle]="{backgroundColor: indice >=4 ? 'blue': 'transparent'}"
+    [ngClass]="{'white-text': indice >= 4}"
+    >
+    {{logitem}}
+</div>
+<hr>
+<input type="text" class="form-control" [(ngModel)]="serverName">
+<button class="btn btn-primary" [disabled]="allowNewServer" (click)="onCreateServer()">Add Server</button>
+<app-server *ngFor="let Server of servers"></app-server>
