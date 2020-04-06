@@ -1,3 +1,6 @@
+# Descargar Dependencias 
+path_project>npm install
+
 # angular9
 
 Comandos varios
